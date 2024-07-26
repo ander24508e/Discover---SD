@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class CodeLin extends StatelessWidget {
-  const CodeLin({super.key});
+class DiscoverSD extends StatelessWidget {
+  const DiscoverSD({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class CodeLin extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    'code-tech'.toUpperCase(),
+                    'discover-sd'.toUpperCase(),
                     textAlign: TextAlign.center,
                     style: GoogleFonts.dmSerifDisplay(
                       color: Colors.black,

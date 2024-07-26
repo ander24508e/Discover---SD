@@ -27,44 +27,27 @@ class _MenuPageState extends State<MenuPage> {
     );
   }
 
-  void _onPageChanged(int index) {
-    setState(() {
-      // Actualiza el título según el índice de la página actual
-      switch (index) {
-        case 0:
-          _entertainmentTitle = 'Entretenimiento - Parte 1';
-          break;
-        case 1:
-          _entertainmentTitle = 'Entretenimiento - Parte 2';
-          break;
-        case 2:
-          _entertainmentTitle = 'Entretenimiento - Parte 3';
-          break;
-        default:
-          _entertainmentTitle = 'Entretenimiento';
-      }
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200], // Color de fondo gris claro
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         backgroundColor: thirdColor,
         actions: [
           PopupMenuButton<String>(
             onSelected: (value) {
-              if (value == 'publicar') {
+              if (value == 'historia') {
                 Navigator.pushNamed(context, 'santod_page');
               } else if (value == 'contacto') {
-                Navigator.pushNamed(context, 'code_tech');
+                Navigator.pushNamed(context, 'discover_sd');
               }
             },
             itemBuilder: (BuildContext context) {
               return [
                 PopupMenuItem<String>(
-                  value: 'publicar',
+                  value: 'historia',
                   child: Text('Historia de Santo Domingo'.toUpperCase()),
                 ),
                 PopupMenuItem<String>(
@@ -77,7 +60,7 @@ class _MenuPageState extends State<MenuPage> {
           ),
         ],
         title: Text(
-          'Tierrita Tsachila'.toUpperCase(),
+          'discover - sd'.toUpperCase(),
           style: GoogleFonts.dmSerifDisplay(
             color: Colors.black,
             fontSize: 20,
@@ -106,7 +89,6 @@ class _MenuPageState extends State<MenuPage> {
           Expanded(
             child: PageView.builder(
               controller: _pageController,
-              onPageChanged: _onPageChanged,
               itemCount:
                   (lugarMenu.length / 6).ceil(), // Calcula el número de páginas
               itemBuilder: (context, index) {
@@ -122,12 +104,12 @@ class _MenuPageState extends State<MenuPage> {
 
   Widget _buildSearchField() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+      padding: const EdgeInsets.symmetric(horizontal: 35.0),
       child: TextField(
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: fourthColor),
-            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(color: thirdColor),
+            borderRadius: BorderRadius.circular(40),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(242, 34, 34, 34)),

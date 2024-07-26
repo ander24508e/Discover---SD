@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:app_turism/controllers/lista.dart';
 import 'package:app_turism/templates/color.dart';
 import 'package:app_turism/controllers/lugares.dart'; // Asegúrate de tener tu modelo Lugar
@@ -49,7 +50,7 @@ class _MenuPremiumPageState extends State<MenuPremium> {
     setState(() {
       _selectedMenuItem = menuItem;
     });
-    Navigator.pop(context); // Cierra el drawer después de seleccionar
+    Navigator.pop(context);
   }
 
   @override
@@ -173,11 +174,11 @@ class _MenuPremiumPageState extends State<MenuPremium> {
             const Divider(),
             ListTile(
               leading: const Icon(
-                Icons.book_online,
+                Icons.reviews,
                 color: Colors.teal,
               ),
               title: const Text(
-                'ENCUESTAS',
+                'RESEÑAS',
                 style: TextStyle(
                   color: Colors.teal,
                   fontSize: 18,
@@ -185,7 +186,7 @@ class _MenuPremiumPageState extends State<MenuPremium> {
                 ),
               ),
               onTap: () {
-                _selectMenuItem('ENCUESTAS');
+                _selectMenuItem('RESEÑAS');
               },
             ),
             const Divider(),
@@ -209,11 +210,30 @@ class _MenuPremiumPageState extends State<MenuPremium> {
             const Divider(),
             ListTile(
               leading: const Icon(
+                Icons.phone,
+                color: Colors.teal,
+              ),
+              title: const Text(
+                'CONTACTANOS',
+                style: TextStyle(
+                  color: Colors.teal,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, 'discover_sd');
+                ;
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(
                 Icons.close,
                 color: Colors.teal,
               ),
               title: const Text(
-                'CERRAR SESIÓN',
+                'CERRAR MENU',
                 style: TextStyle(
                   color: Colors.teal,
                   fontSize: 18,
@@ -225,7 +245,6 @@ class _MenuPremiumPageState extends State<MenuPremium> {
                 ;
               },
             ),
-            const Divider(),
           ],
         ),
       ),
@@ -271,7 +290,7 @@ class _MenuPremiumPageState extends State<MenuPremium> {
       case 'ORDEN DE TRABAJO':
         return Center(child: Text('ORDEN DE TRABAJO seleccionada'));
       case 'ENCUESTAS':
-        return Center(child: Text('ENCUESTAS seleccionadas'));
+        return Center(child: Text('RESEÑAS'));
       case 'LOCALIZACION':
         return Center(child: Text('LOCALIZACION seleccionada'));
       case 'CERRAR SESIÓN':
@@ -341,7 +360,7 @@ class _MenuPremiumPageState extends State<MenuPremium> {
               color: Colors.black.withOpacity(0.2),
               spreadRadius: 2,
               blurRadius: 4,
-              offset: Offset(0, 2),
+              offset: const Offset(0, 2),
             ),
           ],
         ),

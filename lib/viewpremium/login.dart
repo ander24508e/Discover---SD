@@ -40,7 +40,7 @@ class _LoginFormState extends State<LoginForm> {
       appBar: AppBar(
         backgroundColor: thirdColor,
         title: Text(
-          'Tierrita Tsachila'.toUpperCase(),
+          'Iniciar Sesión'.toUpperCase(),
           style: GoogleFonts.dmSerifDisplay(
             color: Colors.black,
             fontSize: 20,
@@ -73,7 +73,7 @@ class _LoginFormState extends State<LoginForm> {
               children: [
                 ClipOval(
                   child: Image.asset(
-                    'lib/imagenes/loginlogo.jpg',
+                    'lib/imagenes/discoverlogo.jpg',
                     height: 150,
                     width: 150,
                     fit: BoxFit.cover,
@@ -124,7 +124,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 const SizedBox(height: 20),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
                       onPressed: () {
@@ -148,14 +148,22 @@ class _LoginFormState extends State<LoginForm> {
                       },
                       child: const Text("INICIAR SESIÓN"),
                     ),
+                    const SizedBox(width: 10),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, 'menu_page');
+                        Navigator.pushNamed(context, 'registro');
                       },
-                      child: const Text("INVITADO"),
+                      child: const Text("REGISTRARSE"),
                     ),
                   ],
-                )
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'menu_page');
+                  },
+                  child: const Text("INVITADO"),
+                ),
               ],
             ),
           ),
